@@ -1,0 +1,26 @@
+-- Create a clothing store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, department TEXT, clothes_types TEXT, colors TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO store VALUES (1, "men", "short_sleeve_shirt", "blue", 5, 10);
+INSERT INTO store VALUES (2, "women", "short_sleeve_shirt", "blue", 7, 10);
+INSERT INTO store VALUES (3, "children", "short_sleeve_shirt", "blue", 11, 5);
+INSERT INTO store VALUES (4, "men", "long_sleeve_shirt", "blue", 3, 15);
+INSERT INTO store VALUES (5, "women", "long_sleeve_shirt", "blue", 0, 15);
+INSERT INTO store VALUES (6, "children", "long_sleeve_shirt", "blue", 22, 10);
+INSERT INTO store VALUES (7, "men", "V_neck_shirt", "grey", 6, 20);
+INSERT INTO store VALUES (8, "women", "V_neck_shirt", "grey", 8, 20);
+INSERT INTO store VALUES (9, "children", "V_neck_shirt", "grey", 9, 10);
+INSERT INTO store VALUES (10, "men", "sweater", "black", 25, 25);
+INSERT INTO store VALUES (11, "women", "sweater", "black", 12, 25);
+INSERT INTO store VALUES (12, "children", "sweater", "black", 5, 15);
+INSERT INTO store VALUES (13, "men", "pants", "blue_jeans", 8, 30);
+INSERT INTO store VALUES (14, "women", "pants", "blue_jeans", 11, 30);
+INSERT INTO store VALUES (15, "children", "pants", "blue_jeans", 15, 20);
+
+--Display The Database Ordered by Price. 
+SELECT * FROM store
+ORDER BY price desc;
+
+--Displayed The Database Aggregate Functions by using "SUM(quanity)" to add up the items.
+SELECT SUM(quantity) FROM store;
