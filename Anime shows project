@@ -1,0 +1,38 @@
+CREATE TABLE anime_shows (id INTEGER PRIMARY KEY, name TEXT, genre TEXT, ranking INTEGER);
+
+INSERT INTO anime_shows VALUES
+(1, "bleach", "supernatural/action", 10),
+(2, "naruto", "action/adventure", 10),
+(3, "kuroko_no_basket", "sports", 8),
+(4, "mushoku_tensei", "magic/adventure", 8),
+(5, "reinarnated_as_a_slime", "magic/action", 9),
+(6, "haikyuu", "sports", 8),
+(7, "kaze_no_stigma", "magic/action", 6),
+(8, "hunter_x_hunter", "action/adventure", 7),
+(9, "yuyu_hakusho", "supernatural/action", 9),
+(10, "inuyasha", "supernatural/adventure", 7),
+(11, "black_clover", "magic/action", 7),
+(12, "boruto", "action/adventure", 6),
+(13, "classroom_of_elites", "drama", 6),
+(14, "overlord", "magic/adventure", 8),
+(15, "shield_hero", "magic/adventure", 9),
+(16, "demon_slayer", "supernatural/action", 10),
+(17, "full_metal_alchemist", "action/adventure", 8),
+(18, "far_away_paladin", "magic/action", 7),
+(19, "fire_force", "action/adventure", 6),
+(20, "my_hero_academia", "action/adventure", 9);
+
+SELECT * FROM anime_shows;
+
+SELECT * FROM anime_shows WHERE genre = "supernatural/action" AND ranking >= 7;
+
+SELECT * FROM anime_shows WHERE genre = "magic/action" OR ranking < 6;
+
+SELECT name, AVG(ranking) AS average_ranking FROM anime_shows GROUP BY name HAVING average_ranking > 6;
+
+SELECT COUNT(*),
+CASE
+WHEN ranking >= 9 THEN "awesome"
+WHEN ranking >= 7 THEN "good"
+WHEN ranking >= 5 THEN "fair"
+END AS "recommendation" FROM anime_shows GROUP BY "recommendation";
