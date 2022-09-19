@@ -1,0 +1,41 @@
+CREATE TABLE singers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, location TEXT, singles INTEGER);
+
+INSERT INTO singers VALUES
+(1, "Charlie", "Puth", "US", 26),
+(2, "Shawn", "Mendes", "CA", 9),
+(3, "Adele",  "Kingston", "UK", 16),
+(4, "Sam", "Smith", "UK", 33),
+(5, "Teddy", "Swims", "US", 26),
+(6, "Adam", "Lambert", "US", 23),
+(7, "Alicia", "Keys", "US", 45),
+(8, "Lauren", "Hill", "US", 11),
+(9, "Calum", "Scott", "UK", 14),
+(10, "Jennifer", "Hudson", "US", 20);
+
+CREATE TABLE hit_album (id INTEGER PRIMARY KEY,singer_id INTEGER, name TEXT, number_of_songs INTEGER);
+
+INSERT INTO hit_album (singer_id, name, number_of_songs) VALUES
+(1, "Voicenotes", 5),
+(2, "Illuminate", 8),
+(3, "Twentyone", 8),
+(4, "Lonelyhour", 10),
+(5, "Unlearning", 4),
+(6, "Entertainment", 4),
+(7, "SonginAminor", 5),
+(8, "Miseducation", 6),
+(9, "Onlyhuman", 4),
+(10, "Rememberme", 4);
+
+SELECT singers.first_name, singers.last_name, hit_album.name
+FROM singers
+JOIN hit_album
+ON singers.id = hit_album.singer_id;
+
+SELECT * FROM singers WHERE singles > 10 
+AND location = "UK";
+
+SELECT singers.first_name, singers.last_name, hit_album.name
+FROM singers
+JOIN hit_album 
+ON singers.id = hit_album.singer_id 
+WHERE number_of_songs <5;
